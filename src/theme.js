@@ -190,9 +190,29 @@ export const themeSettings = mode => {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
       },
-
     },
   };
 };
 
+//create context for mode toggle and take default object with annonymous function
+export const ColorModeContext = createContext({
+  toggleColorMode: () => {},
+});
 
+//custome hook to return the mode values
+export const useMode = () => {
+  const [mode, setMode] = useState("dark");
+
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () =>
+        setMode(prev => (prev === "light" ? "dark" : "light")),
+    }),
+    []
+  );
+
+  //Theme context provided by MUI
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
+  return [theme, colorMode];
+};
