@@ -5,7 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "./scenes/global/sidebar/Sidebar";
 import Team from "./scenes/team/Team";
-// import Invoices from "./scenes/invoices";
+import Invoices from "./scenes/invoices/Invoices";
 import Contacts from "./scenes/contacts/Contacts";
 // import Bar from "./scenes/bar";
 // import Form from "./scenes/form";
@@ -23,14 +23,14 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar/>
+          <Sidebar />
           <main className="content">
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
-              {/* <Route path="/invoices" element={<Invoices />} /> */}
+              <Route path="/invoice" element={<Invoices />} />
               {/* <Route path="/bar" element={<Bar />} /> */}
               {/* <Route path="/form" element={<Form />} /> */}
               {/* <Route path="/line" element={<Line />} /> */}
